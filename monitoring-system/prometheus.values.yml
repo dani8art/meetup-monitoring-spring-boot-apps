@@ -1,0 +1,9 @@
+server:
+  extraScrapeConfigs:
+    - job_name: app
+      scrape_interval: 5s
+      static_configs:
+        - targets: ['192.168.1.33:8080']
+          labels:
+            group: app
+      metrics_path: /actuator/prometheus

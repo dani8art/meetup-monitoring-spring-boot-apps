@@ -1,0 +1,23 @@
+persistence:
+  enabled: false
+
+datasources:
+  secretDefinition:
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        access: proxy
+        orgId: 1
+        url: http://10.1.0.111:9090
+        version: 1
+        editable: true
+        isDefault: true
+      - name: Alertmanager
+        uid: alertmanager
+        type: alertmanager
+        access: proxy
+        orgId: 1
+        url: http://10.1.0.112:9093
+        version: 1
+        editable: true
