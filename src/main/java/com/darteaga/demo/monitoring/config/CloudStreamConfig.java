@@ -47,8 +47,18 @@ public class CloudStreamConfig {
 
   public static class PurchaseProcessor implements Function<Purchase, Purchase> {
 
+    private int milli = 0;
+
     @Timed(value = "purchase_processor")
     public Purchase apply(Purchase purchase) {
+      milli = (milli + 100) % 1000;
+
+      try {
+        Thread.sleep(milli);
+      } catch (InterruptedException e) {
+        // no-op
+      }
+
       return purchase;
     }
   }

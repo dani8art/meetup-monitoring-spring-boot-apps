@@ -1,6 +1,6 @@
 # Monitorización de microservicios Spring Boot con Grafana y Prometheus
 
-Puedes ver las trasparencias [aquí](https://docs.google.com/presentation/d/1cPpkaI9mPi5Wz9mH8XnjRrPqN9aa_OgAPW6slcztikU/edit?usp=sharing)
+Puedes ver las transparencias [aquí](https://docs.google.com/presentation/d/1cPpkaI9mPi5Wz9mH8XnjRrPqN9aa_OgAPW6slcztikU/edit?usp=sharing)
 
 ## Sistema de monitorización
 ### Peparar el entorno
@@ -8,7 +8,7 @@ Puedes ver las trasparencias [aquí](https://docs.google.com/presentation/d/1cPp
 
 ```shell
 $ helm install prometheus oci://registry-1.docker.io/bitnamicharts/prometheus -f monitoring-system/prometheus.values.yml
-$ k port-forward svc/prometheus-server 9090:9090
+$ k port-forward svc/prometheus-server 9090:80
 ```
 
 #### Instalar Grafana

@@ -1,9 +1,9 @@
 server:
   extraScrapeConfigs:
     - job_name: app
-      scrape_interval: 5s
+      scrape_interval: 1s
       static_configs:
-        - targets: ['192.168.1.33:8080']
+        - targets: ['10.71.25.76:8080'] # Replace it by your host IP
           labels:
             group: app
       metrics_path: /actuator/prometheus
