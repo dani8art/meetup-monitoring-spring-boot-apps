@@ -2,6 +2,7 @@ package com.darteaga.demo.monitoring.config;
 
 import com.darteaga.demo.monitoring.dao.PurchaseJpaRepository;
 import com.darteaga.demo.monitoring.model.Purchase;
+import io.micrometer.core.annotation.Timed;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -35,7 +36,7 @@ public class CloudStreamConfig {
 
   @Bean
   public Function<Purchase, Purchase> purchaseProcessor() {
-    return purchase -> purchase;
+    return new PurchaseProcessor();
   }
 
   @Bean
@@ -43,4 +44,12 @@ public class CloudStreamConfig {
     return dao::save;
   }
 
+
+  public static class PurchaseProcessor implements Function<Purchase, Purchase> {
+
+    @Timed(value = "purchase_processor")
+    public Purchase apply(Purchase purchase) {
+      return purchase;
+    }
+  }
 }
