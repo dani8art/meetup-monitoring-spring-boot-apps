@@ -49,7 +49,7 @@ public class CloudStreamConfig {
 
     private int milli = 0;
 
-    @Timed(value = "purchase_processor")
+    @Timed(value = "purchase.processor")
     public Purchase apply(Purchase purchase) {
       milli = (milli + 100) % 1000;
 
